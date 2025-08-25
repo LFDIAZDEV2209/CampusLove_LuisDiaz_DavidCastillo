@@ -1,3 +1,4 @@
+using examencsharp.src.Modules.Match.Domain.Entities;
 using examencsharp.src.Modules.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,4 +15,7 @@ public class AppDbContext : DbContext
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
+
+    public DbSet<Matches> Matches { get; set; }
+
 }

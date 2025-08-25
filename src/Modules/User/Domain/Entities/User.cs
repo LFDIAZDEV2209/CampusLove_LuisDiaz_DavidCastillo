@@ -1,5 +1,7 @@
 
 
+using examencsharp.src.Modules.Match.Domain.Entities;
+
 namespace examencsharp.src.Modules.Domain.Entities;
 
 public class User
@@ -19,6 +21,10 @@ public class User
     public int LikesInserts { get; set; }
     public int LikesAvailable { get; set; }
     public int Dislikes { get; set; }
+
+    public ICollection<Matches> MatchesAsUser1 { get; set; } = new List<Matches>();
+    public ICollection<Matches> MatchesAsUser2 { get; set; } = new List<Matches>();
+
 
     public User(int id, string username, string password, string email, string name, int age, string genre, string interests, string career, string phrase)
     {

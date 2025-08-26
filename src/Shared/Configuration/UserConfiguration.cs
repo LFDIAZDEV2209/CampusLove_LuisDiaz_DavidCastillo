@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace examencsharp.src.Shared.Configuration;
 
-public class UserConfiguration
+public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
@@ -72,6 +72,18 @@ e.Genre)
             .HasColumnName("email")
             .IsRequired()
             .HasMaxLength(100);
-        
+        // Navegaciones (configuradas desde Matches también)
+        builder
+            .HasMany(u => u.MatchesAsUser1)
+            .WithOne(m => m.User1)
+            .HasForeignKey(m => m.UserId1)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder
+            .HasMany(u => u.MatchesAsUser2)
+            .WithOne(m => m.User2)
+            .HasForeignKey(m => m.UserId2)
+            .OnDelete(DeleteBehavior.Restrict);
+
     }
 }

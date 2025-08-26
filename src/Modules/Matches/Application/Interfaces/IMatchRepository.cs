@@ -6,4 +6,5 @@ public interface IMatchRepository
 {
     IQueryable<Matches> Query();
     Task<IEnumerable<Matches>> GetAllMatchesAsync();
+    Task<int> SaveAsync();
 }

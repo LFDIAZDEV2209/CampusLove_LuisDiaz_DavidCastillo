@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace examencsharp.src.Modules.Match.infrastructure;
 
-public class MatchRepository
+public class MatchRepository : IMatchRepository
 {
     private readonly AppDbContext _context;
 
@@ -25,5 +25,10 @@ public class MatchRepository
             .AsNoTracking()
             .ToListAsync()
             .ContinueWith(t => (IEnumerable<Matches>)t.Result);
+    }
+
+    public Task<int> SaveAsync()
+    {
+        return _context.SaveChangesAsync();
     }
 }

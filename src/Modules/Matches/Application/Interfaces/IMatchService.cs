@@ -5,4 +5,5 @@ namespace examencsharp.src.Modules.Match.Application.Interfaces;
 public interface IMatchService
 {
     void CreateMatch(Matches match);
+    Task<IEnumerable<Matches>> GetAllMatchesAsync();
 }

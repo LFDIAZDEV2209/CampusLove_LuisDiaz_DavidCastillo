@@ -2,7 +2,7 @@ CREATE TABLE user (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(50) NOT NULL,
     age INT NOT NULL,
-    genre ENUM('Masculino, Femenino, Otro') NOT NULL,
+    genre ENUM('Masculino','Femenino','Otro') NOT NULL,
     interests TEXT NOT NULL,
     career VARCHAR(100),
     phrase VARCHAR(100),

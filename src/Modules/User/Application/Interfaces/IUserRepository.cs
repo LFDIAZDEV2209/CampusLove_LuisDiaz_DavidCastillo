@@ -1,12 +1,14 @@
-using examencsharp.src.Modules.Domain.Entities;
+using DomainUser = examencsharp.src.Modules.Domain.Entities.User;
 
 namespace examencsharp.src.Modules.Application.Interfaces;
 
 public interface IUserRepository
 {
-    void RegisterUser(User user);
-    Task<IEnumerable<User>> GetAllUsersWithoutUserLoguedAsync(string username);
-    IQueryable<User> Query();
-    Task<User?> GetMatchesByUsernameAsync(string username);
-    Task<User?> GetUserByUsernameAsync(string username);
+    void RegisterUser(DomainUser user);
+    void UpdateUser(DomainUser user);
+    Task<IEnumerable<DomainUser>> GetAllUsersWithoutUserLoguedAsync(string username);
+    IQueryable<DomainUser> Query();
+    Task<DomainUser?> GetMatchesByUsernameAsync(string username);
+    Task<DomainUser?> GetUserByUsernameAsync(string username);
+    Task<int> SaveAsync();
 }
